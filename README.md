@@ -58,8 +58,6 @@ Make sure you have **CMake** installed before building this project.
 Check if CMake is Installed:
 Run the following command to verify the installation:
  ```sh
- Check if CMake is Installed:
-Run the following command to verify the installation:
+cmake --version
 
-
-> See also: https://github.com/steinbergmedia/vst3sdk
+>See also: https://github.com/steinbergmedia/vst3sdk
