@@ -12,20 +12,20 @@ using namespace Steinberg;
 
 namespace MyCompanyName {
 //------------------------------------------------------------------------
-// HalfSpinProcessor
+// PitchControlDelayProcessor
 //------------------------------------------------------------------------
-HalfSpinProcessor::HalfSpinProcessor ()
+PitchControlDelayProcessor::PitchControlDelayProcessor ()
 {
 	//--- set the wanted controller for our processor
-	setControllerClass (kHalfSpinControllerUID);
+	setControllerClass (kPitchControlDelayControllerUID);
 }
 
 //------------------------------------------------------------------------
-HalfSpinProcessor::~HalfSpinProcessor ()
+PitchControlDelayProcessor::~PitchControlDelayProcessor ()
 {}
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::initialize (FUnknown* context)
+tresult PLUGIN_API PitchControlDelayProcessor::initialize (FUnknown* context)
 {
 	// Here the Plug-in will be instantiated
 	
@@ -48,7 +48,7 @@ tresult PLUGIN_API HalfSpinProcessor::initialize (FUnknown* context)
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::terminate ()
+tresult PLUGIN_API PitchControlDelayProcessor::terminate ()
 {
 	// Here the Plug-in will be de-instantiated, last possibility to remove some memory!
 	
@@ -57,14 +57,14 @@ tresult PLUGIN_API HalfSpinProcessor::terminate ()
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::setActive (TBool state)
+tresult PLUGIN_API PitchControlDelayProcessor::setActive (TBool state)
 {
 	//--- called when the Plug-in is enable/disable (On/Off) -----
 	return AudioEffect::setActive (state);
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::process (Vst::ProcessData& data)
+tresult PLUGIN_API PitchControlDelayProcessor::process (Vst::ProcessData& data)
 {
 	//--- First : Read inputs parameter changes-----------
 
@@ -138,14 +138,14 @@ tresult PLUGIN_API HalfSpinProcessor::process (Vst::ProcessData& data)
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::setupProcessing (Vst::ProcessSetup& newSetup)
+tresult PLUGIN_API PitchControlDelayProcessor::setupProcessing (Vst::ProcessSetup& newSetup)
 {
 	//--- called before any processing ----
 	return AudioEffect::setupProcessing (newSetup);
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::canProcessSampleSize (int32 symbolicSampleSize)
+tresult PLUGIN_API PitchControlDelayProcessor::canProcessSampleSize (int32 symbolicSampleSize)
 {
 	// by default kSample32 is supported
 	if (symbolicSampleSize == Vst::kSample32)
@@ -159,7 +159,7 @@ tresult PLUGIN_API HalfSpinProcessor::canProcessSampleSize (int32 symbolicSample
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::setState (IBStream* state)
+tresult PLUGIN_API PitchControlDelayProcessor::setState (IBStream* state)
 {
 	// called when we load a preset, the model has to be reloaded
 	IBStreamer streamer (state, kLittleEndian);
@@ -168,7 +168,7 @@ tresult PLUGIN_API HalfSpinProcessor::setState (IBStream* state)
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinProcessor::getState (IBStream* state)
+tresult PLUGIN_API PitchControlDelayProcessor::getState (IBStream* state)
 {
 	// here we need to save the model
 	IBStreamer streamer (state, kLittleEndian);

@@ -9,18 +9,18 @@
 namespace MyCompanyName {
 
 //------------------------------------------------------------------------
-//  HalfSpinProcessor
+//  PitchControlDelayProcessor
 //------------------------------------------------------------------------
-class HalfSpinProcessor : public Steinberg::Vst::AudioEffect
+class PitchControlDelayProcessor : public Steinberg::Vst::AudioEffect
 {
 public:
-	HalfSpinProcessor ();
-	~HalfSpinProcessor () SMTG_OVERRIDE;
+	PitchControlDelayProcessor ();
+	~PitchControlDelayProcessor () SMTG_OVERRIDE;
 
     // Create function
 	static Steinberg::FUnknown* createInstance (void* /*context*/) 
 	{ 
-		return (Steinberg::Vst::IAudioProcessor*)new HalfSpinProcessor; 
+		return (Steinberg::Vst::IAudioProcessor*)new PitchControlDelayProcessor; 
 	}
 
 	//--- ---------------------------------------------------------------------

@@ -26,11 +26,11 @@
 			<key>factoryFunction</key>
 			<string>AUWrapperFactory</string>
 			<key>description</key>
-			<string>HalfSpin</string>
+			<string>PitchControlDelay</string>
 			<key>manufacturer</key>
 			<string>XXXX</string>
 			<key>name</key>
-			<string>MaxDev0101: HalfSpin</string>
+			<string>MaxDev0101: PitchControlDelay</string>
 			<key>subtype</key>
 			<string>0002</string>
 			<key>type</key>

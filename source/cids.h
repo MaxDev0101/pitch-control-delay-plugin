@@ -9,10 +9,10 @@
 
 namespace MyCompanyName {
 //------------------------------------------------------------------------
-static const Steinberg::FUID kHalfSpinProcessorUID (0xFC11F948, 0xE80950E2, 0x848EC351, 0xF2C3D161);
-static const Steinberg::FUID kHalfSpinControllerUID (0x522C797A, 0xB61654ED, 0x8A24F96C, 0x311D8E72);
+static const Steinberg::FUID kPitchControlDelayProcessorUID (0xFC11F948, 0xE80950E2, 0x848EC351, 0xF2C3D161);
+static const Steinberg::FUID kPitchControlDelayControllerUID (0x522C797A, 0xB61654ED, 0x8A24F96C, 0x311D8E72);
 
-#define HalfSpinVST3Category "Fx"
+#define PitchControlDelayVST3Category "Fx"
 
 //------------------------------------------------------------------------
 } // namespace MyCompanyName

@@ -9,19 +9,19 @@
 namespace MyCompanyName {
 
 //------------------------------------------------------------------------
-//  HalfSpinController
+//  PitchControlDelayController
 //------------------------------------------------------------------------
-class HalfSpinController : public Steinberg::Vst::EditControllerEx1
+class PitchControlDelayController : public Steinberg::Vst::EditControllerEx1
 {
 public:
 //------------------------------------------------------------------------
-	HalfSpinController () = default;
-	~HalfSpinController () SMTG_OVERRIDE = default;
+	PitchControlDelayController () = default;
+	~PitchControlDelayController () SMTG_OVERRIDE = default;
 
     // Create function
 	static Steinberg::FUnknown* createInstance (void* /*context*/)
 	{
-		return (Steinberg::Vst::IEditController*)new HalfSpinController;
+		return (Steinberg::Vst::IEditController*)new PitchControlDelayController;
 	}
 
 	//--- from IPluginBase -----------------------------------------------

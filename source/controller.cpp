@@ -11,9 +11,9 @@ using namespace Steinberg;
 namespace MyCompanyName {
 
 //------------------------------------------------------------------------
-// HalfSpinController Implementation
+// PitchControlDelayController Implementation
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinController::initialize (FUnknown* context)
+tresult PLUGIN_API PitchControlDelayController::initialize (FUnknown* context)
 {
 	// Here the Plug-in will be instantiated
 
@@ -30,7 +30,7 @@ tresult PLUGIN_API HalfSpinController::initialize (FUnknown* context)
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinController::terminate ()
+tresult PLUGIN_API PitchControlDelayController::terminate ()
 {
 	// Here the Plug-in will be de-instantiated, last possibility to remove some memory!
 
@@ -39,7 +39,7 @@ tresult PLUGIN_API HalfSpinController::terminate ()
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinController::setComponentState (IBStream* state)
+tresult PLUGIN_API PitchControlDelayController::setComponentState (IBStream* state)
 {
 	// Here you get the state of the component (Processor part)
 	if (!state)
@@ -49,7 +49,7 @@ tresult PLUGIN_API HalfSpinController::setComponentState (IBStream* state)
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinController::setState (IBStream* state)
+tresult PLUGIN_API PitchControlDelayController::setState (IBStream* state)
 {
 	// Here you get the state of the controller
 
@@ -57,7 +57,7 @@ tresult PLUGIN_API HalfSpinController::setState (IBStream* state)
 }
 
 //------------------------------------------------------------------------
-tresult PLUGIN_API HalfSpinController::getState (IBStream* state)
+tresult PLUGIN_API PitchControlDelayController::getState (IBStream* state)
 {
 	// Here you are asked to deliver the state of the controller (if needed)
 	// Note: the real state of your plug-in is saved in the processor
@@ -66,7 +66,7 @@ tresult PLUGIN_API HalfSpinController::getState (IBStream* state)
 }
 
 //------------------------------------------------------------------------
-IPlugView* PLUGIN_API HalfSpinController::createView (FIDString name)
+IPlugView* PLUGIN_API PitchControlDelayController::createView (FIDString name)
 {
 	// Here the Host wants to open your editor (if you have one)
 	if (FIDStringsEqual (name, Vst::ViewType::kEditor))

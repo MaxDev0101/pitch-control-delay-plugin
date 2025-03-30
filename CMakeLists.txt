@@ -7,12 +7,12 @@ option(SMTG_ENABLE_AUV2_BUILDS "Enable building of AUv2 plugin" ON)
 
 set(CMAKE_OSX_DEPLOYMENT_TARGET 10.13 CACHE STRING "")
 
-project(HalfSpin
+project(PitchControlDelay
     # This is your plug-in version number. Change it here only.
     # Version number symbols usable in C++ can be found in
     # source/version.h and ${PROJECT_BINARY_DIR}/projectversion.h.
     VERSION 1.0.0.0 
-    DESCRIPTION "HalfSpin VST 3 Plug-in"
+    DESCRIPTION "PitchControlDelay VST 3 Plug-in"
 )
 
 add_subdirectory(extern)
@@ -21,7 +21,7 @@ set(SMTG_VSTGUI_ROOT "${vst3sdk_SOURCE_DIR}")
 
 smtg_enable_vst3_sdk()
 
-smtg_add_vst3plugin(HalfSpin
+smtg_add_vst3plugin(PitchControlDelay
     source/version.h
     source/cids.h
     source/processor.h
@@ -33,51 +33,51 @@ smtg_add_vst3plugin(HalfSpin
 
 #- VSTGUI Wanted ----
 if(SMTG_ENABLE_VSTGUI_SUPPORT)
-    target_sources(HalfSpin
+    target_sources(PitchControlDelay
         PRIVATE
             resource/editor.uidesc
     )
-    target_link_libraries(HalfSpin
+    target_link_libraries(PitchControlDelay
         PRIVATE
             vstgui_support
     )
-    smtg_target_add_plugin_resources(HalfSpin
+    smtg_target_add_plugin_resources(PitchControlDelay
         RESOURCES
             "resource/editor.uidesc"
     )
 endif(SMTG_ENABLE_VSTGUI_SUPPORT)
 # -------------------
 
-smtg_target_add_plugin_snapshots (HalfSpin
+smtg_target_add_plugin_snapshots (PitchControlDelay
     RESOURCES
         resource/FC11F948E80950E2848EC351F2C3D161_snapshot.png
         resource/FC11F948E80950E2848EC351F2C3D161_snapshot_2.0x.png
 )
 
-target_link_libraries(HalfSpin
+target_link_libraries(PitchControlDelay
     PRIVATE
         sdk
 )
 
-smtg_target_configure_version_file(HalfSpin)
+smtg_target_configure_version_file(PitchControlDelay)
 
 if(SMTG_MAC)
-    smtg_target_set_bundle(HalfSpin
-        BUNDLE_IDENTIFIER org.maxdev0101.halfspin
+    smtg_target_set_bundle(PitchControlDelay
+        BUNDLE_IDENTIFIER org.maxdev0101.pitch-control-delay
         COMPANY_NAME "MaxDev0101"
     )
-    smtg_target_set_debug_executable(HalfSpin
+    smtg_target_set_debug_executable(PitchControlDelay
         "/Applications/VST3PluginTestHost.app"
         "--pluginfolder;$(BUILT_PRODUCTS_DIR)"
     )
 elseif(SMTG_WIN)
-    target_sources(HalfSpin PRIVATE 
+    target_sources(PitchControlDelay PRIVATE 
         resource/win32resource.rc
     )
     if(MSVC)
-        set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT HalfSpin)
+        set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT PitchControlDelay)
 
-        smtg_target_set_debug_executable(HalfSpin
+        smtg_target_set_debug_executable(PitchControlDelay
             "$(ProgramW6432)/Steinberg/VST3PluginTestHost/VST3PluginTestHost.exe"
             "--pluginfolder \"$(OutDir)/\""
         )
@@ -89,10 +89,10 @@ if (SMTG_MAC AND XCODE AND SMTG_ENABLE_AUV2_BUILDS)
     message(STATUS "CMAKE_MODULE_PATH is located at: ${vst3sdk_SOURCE_DIR}/cmake/modules")
     list(APPEND CMAKE_MODULE_PATH "${vst3sdk_SOURCE_DIR}/cmake/modules")
     include(SMTG_AddVST3AuV2)
-    smtg_target_add_auv2(HalfSpin_AU
-        BUNDLE_NAME halfspin
-        BUNDLE_IDENTIFIER org.maxdev0101.halfspin.audiounit
+    smtg_target_add_auv2(PitchControlDelay_AU
+        BUNDLE_NAME pitch-control-delay
+        BUNDLE_IDENTIFIER org.maxdev0101.pitch-control-delay.audiounit
         INFO_PLIST_TEMPLATE ${CMAKE_CURRENT_SOURCE_DIR}/resource/au-info.plist
-        VST3_PLUGIN_TARGET HalfSpin)
-    smtg_target_set_debug_executable(HalfSpin_AU "/Applications/Studio One 6.app")
+        VST3_PLUGIN_TARGET PitchControlDelay)
+    smtg_target_set_debug_executable(PitchControlDelay_AU "/Applications/Studio One 6.app")
 endif(SMTG_MAC AND XCODE AND SMTG_ENABLE_AUV2_BUILDS)
