@@ -4,8 +4,10 @@
 
 #include "controller.h"
 #include "cids.h"
+#include "pluginterfaces/base/ustring.h"
 #include "vstgui/plugin-bindings/vst3editor.h"
 
+#include <vector>
 
 using namespace Steinberg;
 using namespace Steinberg::Vst;
@@ -26,7 +28,10 @@ tresult PLUGIN_API PitchControlDelayController::initialize (FUnknown* context)
 		return result;
 	}
 
-	// Here you could register some parameters
+    if (result == kResultTrue)
+    {
+        parameters.addParameter (STR16 ("Delay"), STR16 ("samples"), 0, 1, ParameterInfo::kCanAutomate, kDelayId);
+    }
 
 	return result;
 }
@@ -81,5 +86,35 @@ IPlugView* PLUGIN_API PitchControlDelayController::createView (FIDString name)
 }
 
 //------------------------------------------------------------------------
+tresult PLUGIN_API PitchControlDelayController::getParamStringByValue (ParamID tag, ParamValue valueNormalized, String128 string)
+{
+    if (tag == kDelayId)
+    {
+        int32 delaySamples = static_cast<int32>(valueNormalized * 50000.0);
+        Steinberg::UString(string, 128).printInt(delaySamples);
+        return kResultTrue;
+    }
+
+    return EditControllerEx1::getParamStringByValue(tag, valueNormalized, string);
+}
+
+//------------------------------------------------------------------------
+tresult PLUGIN_API PitchControlDelayController::getParamValueByString (ParamID tag, TChar* string, ParamValue& valueNormalized)
+{
+    if (tag == kDelayId)
+    {
+        Steinberg::UString128 tempString(string);
+        int64 samples = 0;
+        if (tempString.scanInt(samples) == kResultTrue)
+        {
+            samples = std::min(std::max(0, static_cast<int>(samples)), 50000);
+            valueNormalized = static_cast<ParamValue>(samples) / 50000.0;
+            return kResultTrue;
+        }
+    }
+
+    return EditControllerEx1::getParamValueByString(tag, string, valueNormalized);
+}
+
 //------------------------------------------------------------------------
 } // namespace MaxDev0101
