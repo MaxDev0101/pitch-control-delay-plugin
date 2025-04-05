@@ -57,6 +57,7 @@ smtg_target_add_plugin_snapshots (PitchControlDelay
 target_link_libraries(PitchControlDelay
     PRIVATE
         sdk
+        plugin-core
 )
 
 smtg_target_configure_version_file(PitchControlDelay)

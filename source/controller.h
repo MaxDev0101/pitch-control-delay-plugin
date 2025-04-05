@@ -5,9 +5,11 @@
 #pragma once
 
 #include "public.sdk/source/vst/vsteditcontroller.h"
+#include "maxdev0101/plugin-core/circularbuffer.h"
 
 namespace MaxDev0101 {
 
+static constexpr Steinberg::int32 defaultSampleRate = 44100;
 
 //------------------------------------------------------------------------
 //  PitchControlDelayController
@@ -16,7 +18,7 @@ class PitchControlDelayController : public Steinberg::Vst::EditControllerEx1
 {
 public:
 //------------------------------------------------------------------------
-	PitchControlDelayController () = default;
+    PitchControlDelayController () : circularBuffer (defaultSampleRate) {};
 	~PitchControlDelayController () SMTG_OVERRIDE = default;
 
     // Create function
@@ -44,6 +46,11 @@ public:
 
 //------------------------------------------------------------------------
 protected:
+    Maxdev0101::Plugin_core::CircularBuffer circularBuffer;
+    Steinberg::int32 sampleRate {defaultSampleRate};
+    //float delaySamples {22050};
+    Steinberg::Vst::ParamValue currentNormalizedDelay = 0;
+    
 };
 
 //------------------------------------------------------------------------
