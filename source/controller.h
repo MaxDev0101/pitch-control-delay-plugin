@@ -6,7 +6,8 @@
 
 #include "public.sdk/source/vst/vsteditcontroller.h"
 
-namespace MyCompanyName {
+namespace MaxDev0101 {
+
 
 //------------------------------------------------------------------------
 //  PitchControlDelayController
@@ -46,4 +47,4 @@ protected:
 };
 
 //------------------------------------------------------------------------
-} // namespace MyCompanyName
+} // namespace MaxDev0101

@@ -10,7 +10,7 @@
 
 using namespace Steinberg;
 
-namespace MyCompanyName {
+namespace MaxDev0101 {
 //------------------------------------------------------------------------
 // PitchControlDelayProcessor
 //------------------------------------------------------------------------
@@ -177,4 +177,4 @@ tresult PLUGIN_API PitchControlDelayProcessor::getState (IBStream* state)
 }
 
 //------------------------------------------------------------------------
-} // namespace MyCompanyName
+} // namespace MaxDev0101

@@ -12,7 +12,7 @@
 #define stringPluginName "PitchControlDelay"
 
 using namespace Steinberg::Vst;
-using namespace MyCompanyName;
+using namespace MaxDev0101;
 
 //------------------------------------------------------------------------
 //  VST Plug-in Entry

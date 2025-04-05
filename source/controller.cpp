@@ -6,9 +6,11 @@
 #include "cids.h"
 #include "vstgui/plugin-bindings/vst3editor.h"
 
-using namespace Steinberg;
 
-namespace MyCompanyName {
+using namespace Steinberg;
+using namespace Steinberg::Vst;
+
+namespace MaxDev0101 {
 
 //------------------------------------------------------------------------
 // PitchControlDelayController Implementation
@@ -79,4 +81,5 @@ IPlugView* PLUGIN_API PitchControlDelayController::createView (FIDString name)
 }
 
 //------------------------------------------------------------------------
-} // namespace MyCompanyName
+//------------------------------------------------------------------------
+} // namespace MaxDev0101

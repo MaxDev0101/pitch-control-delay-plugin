@@ -6,7 +6,7 @@
 
 #include "public.sdk/source/vst/vstaudioeffect.h"
 
-namespace MyCompanyName {
+namespace MaxDev0101 {
 
 //------------------------------------------------------------------------
 //  PitchControlDelayProcessor
@@ -54,4 +54,4 @@ protected:
 };
 
 //------------------------------------------------------------------------
-} // namespace MyCompanyName
+} // namespace MaxDev0101
