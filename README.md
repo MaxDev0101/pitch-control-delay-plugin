@@ -1,5 +1,9 @@
 # PitchControlDelay VST 3 Plug-In
 
+[![CMake (Linux, macOS, Windows)](https://github.com/maxdev0101/pitch-control-delay-plugin/actions/workflows/cmake.yml/badge.svg)](https://github.com/maxdev0101/pitch-control-delay-plugin/actions/workflows/cmake.yml)
+
+## Introduction
+
 PitchControlDelay is an VST 3 / AU (macOS) plug-in. 
 A sample delay which matches the samplerate for the process of vinyl cutting.
 
