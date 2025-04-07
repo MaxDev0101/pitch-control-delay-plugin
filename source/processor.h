@@ -61,7 +61,7 @@ protected:
     void
     updateDelaySamplesFromParameter(Steinberg::Vst::ParamValue normalizedValue);
 
-    using ChannelBuffers = std::vector<Maxdev0101::Plugin_core::CircularBuffer>;
+    using ChannelBuffers = std::vector<MaxDev0101::Plugin_core::CircularBuffer>;
     ChannelBuffers channelBuffers;
     Steinberg::int32 sampleRate{defaultSampleRate};
     Steinberg::Vst::ParamValue mGain = 1.;
