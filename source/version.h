@@ -18,4 +18,4 @@
 #define stringCompanyName "MaxDev0101\0"
 #define stringLegalCopyright "Copyright(c) 2025 MaxDev0101."
 #define stringLegalTrademarks                                                  \
-  "VST is a trademark of Steinberg Media Technologies GmbH"
+    "VST is a trademark of Steinberg Media Technologies GmbH"

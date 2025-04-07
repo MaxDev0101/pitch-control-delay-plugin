@@ -56,6 +56,6 @@ DEF_CLASS2(
                                                  // instantiated
 
 //----for others Plug-ins contained in this factory, put like for the first
-//Plug-in different DEF_CLASS2---
+// Plug-in different DEF_CLASS2---
 
 END_FACTORY

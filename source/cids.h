@@ -10,7 +10,10 @@
 namespace MaxDev0101 {
 
 // parameter tags
-enum { kDelayId = 100 };
+enum
+{
+    kDelayId = 100
+};
 
 //------------------------------------------------------------------------
 static const Steinberg::FUID kPitchControlDelayProcessorUID(0xFC11F948,
