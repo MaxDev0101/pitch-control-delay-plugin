@@ -97,3 +97,5 @@ if (SMTG_MAC AND XCODE AND SMTG_ENABLE_AUV2_BUILDS)
         VST3_PLUGIN_TARGET PitchControlDelay)
     smtg_target_set_debug_executable(PitchControlDelay_AU "/Applications/Studio One 6.app")
 endif(SMTG_MAC AND XCODE AND SMTG_ENABLE_AUV2_BUILDS)
+
+smtg_target_setup_universal_binary(plugin-core)
