@@ -1,6 +1,6 @@
 # PitchControlDelay VST 3 Plug-In
 
-[![CMake (macOS, Windows)](https://github.com/maxdev0101/pitch-control-delay-plugin/actions/workflows/cmake.yml/badge.svg)](https://github.com/maxdev0101/pitch-control-delay-plugin/actions/workflows/cmake.yml)
+[![CMake (Linux, macOS, Windows)](https://github.com/maxdev0101/pitch-control-delay-plugin/actions/workflows/cmake.yml/badge.svg)](https://github.com/maxdev0101/pitch-control-delay-plugin/actions/workflows/cmake.yml)
 
 ## Introduction
 
