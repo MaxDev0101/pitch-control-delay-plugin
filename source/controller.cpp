@@ -30,8 +30,9 @@ tresult PLUGIN_API PitchControlDelayController::initialize(FUnknown* context)
 
     if (result == kResultTrue)
     {
-        parameters.addParameter(STR16("Delay"), STR16("samples"), 0, 1,
-                                ParameterInfo::kCanAutomate, kDelayId);
+        parameters.addParameter(STR16("Delay"), STR16("samples"), 0, 0.5,
+                                ParameterInfo::kCanAutomate,
+                                PitchControlParamIds::kDelayId);
     }
 
     return result;
@@ -94,7 +95,7 @@ tresult PLUGIN_API PitchControlDelayController::getParamStringByValue(
 {
     if (tag == kDelayId)
     {
-        int32 delaySamples = static_cast<int32>(valueNormalized * 50000.0);
+        int32 delaySamples = static_cast<int32>(valueNormalized * 2000.0);
         Steinberg::UString(string, 128).printInt(delaySamples);
         return kResultTrue;
     }
@@ -113,8 +114,8 @@ tresult PLUGIN_API PitchControlDelayController::getParamValueByString(
         int64 samples = 0;
         if (tempString.scanInt(samples) == kResultTrue)
         {
-            samples = std::min(std::max(0, static_cast<int>(samples)), 50000);
-            valueNormalized = static_cast<ParamValue>(samples) / 50000.0;
+            samples = std::min(std::max(0, static_cast<int>(samples)), 2000);
+            valueNormalized = static_cast<ParamValue>(samples) / 2000.0f;
             return kResultTrue;
         }
     }

@@ -10,7 +10,7 @@
 namespace MaxDev0101 {
 
 // parameter tags
-enum
+enum PitchControlParamIds
 {
     kDelayId = 100
 };

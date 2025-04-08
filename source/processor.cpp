@@ -74,6 +74,36 @@ tresult PLUGIN_API PitchControlDelayProcessor::process(Vst::ProcessData& data)
         return kResultOk;
     }
 
+    if (data.inputParameterChanges)
+    {
+        int32 numParamsChanged =
+            data.inputParameterChanges->getParameterCount();
+        for (int32 index = 0; index < numParamsChanged; index++)
+        {
+            Vst::IParamValueQueue* paramQueue =
+                data.inputParameterChanges->getParameterData(index);
+            if (paramQueue)
+            {
+                Vst::ParamValue value;
+                int32 sampleOffset;
+                int32 numPoints = paramQueue->getPointCount();
+                switch (paramQueue->getParameterId())
+                {
+                    case PitchControlParamIds::kDelayId: {
+                        paramQueue->getPoint(numPoints - 1, sampleOffset,
+                                             currentNormalizedDelay);
+                        for (auto& channelBuffer : channelBuffers)
+                        {
+                            channelBuffer.setDelayNormalized(
+                                currentNormalizedDelay);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     for (int i = 0; i < data.numSamples; ++i)
     {
         for (int channel = 0; channel < data.inputs[0].numChannels; ++channel)
