@@ -112,9 +112,9 @@ tresult PLUGIN_API PitchControlDelayController::getParamValueByString(
     {
         Steinberg::UString128 tempString(string);
         int64 samples = 0;
-        if (tempString.scanInt(samples) == kResultTrue)
+        if (tempString.scanInt(samples))
         {
-            samples = std::min(std::max(0, static_cast<int>(samples)), 2000);
+            samples         = std::clamp(static_cast<int>(samples), 0, 2000);
             valueNormalized = static_cast<ParamValue>(samples) / 2000.0f;
             return kResultTrue;
         }
